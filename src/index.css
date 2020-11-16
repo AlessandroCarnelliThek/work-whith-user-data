@@ -22,6 +22,10 @@ hr {
   border-bottom:3px solid #ce3a26;
   width:100%;
 }
+ul{
+  list-style: none;
+
+}
 .Link{
   color: #E3E2DB;
   text-decoration: none;
@@ -170,8 +174,8 @@ hr {
   background-color: #E3E2DB;
 
   width:100%;
-  height:100px;
-  padding: 120px 0px;
+  height:100%;
+  padding: 60px 0px;
 
   display: flex;
   flex-flow:column nowrap;
@@ -180,13 +184,41 @@ hr {
 
 }
 .profile__body__title{
+  
   font-size: 30px;
   font-weight: 900;
+
+  padding-bottom:20px;
 }
+
 .profile__body__content{
-  margin-top:20px;
+
+
+  width: 90%;
+  margin-top: 30px;
+  display:flex;
+  flex-flow: column nowrap;
 
 }
+.profile__body__content__title{
+  background-color: #ce3a26;
+  color: #E3E2DB;
+  width:100%;
+  height:100%;
+  padding:15px 20px;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+.profile__body__content__data{
+  background-color: #E3E2DB;
+  color: #24221C;
+  border-left: 5px solid  #ce3a26;
+  padding:15px 20px 20px 25px;
+
+
+}
+
 /*---------------------------
   COMPONENT - LOADING
 ---------------------------*/

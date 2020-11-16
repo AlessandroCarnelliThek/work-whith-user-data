@@ -25,19 +25,14 @@ function UserProfile(props) {
                 </div>
 
                 <div className="profile__body">
+
                     <div className="profile__body__title">{first_name} {last_name}</div>
                     <hr />
 
-                    <div className="profile__body__content">
-                        <h5>Dati personali:</h5>
-                        <div></div>
-                        <hr />
-
-                        <h5>Indirizzo:</h5>
-                        <hr />
-
-                        <h5>Contatti:</h5>
-                    </div>
+                    <PersonalData data={userData} />
+                    <WorkData data={userData} />
+                    <AddressData data={userData} />
+                    <ContactData data={userData} />
 
                 </div>
             </div>
@@ -45,51 +40,87 @@ function UserProfile(props) {
     }
 }
 
-//export function PersonalData()
+export function PersonalData(props) {
+    const { gender, birthdate } = props.data;
 
+    return (
+        <>
+            <div className="profile__body__content">
 
+                <div className="profile__body__content__title">ANAGRAPHIC</div>
+                <div className="profile__body__content__data">
+                    <ul>
+                        <li>born on: {birthdate}</li>
+                        <li>gender:  {gender}</li>
+                        <br/>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
 
+export function WorkData(props) {
+    const { company_name, department, job_title } = props.data;
 
+    return (
+        <>
+            <div className="profile__body__content">
 
+                <div className="profile__body__content__title">Work</div>
+                <div className="profile__body__content__data">
+                    <ul>
+                        <li>company:    {company_name}</li>
+                        <li>department:  {department}</li>
+                        <li>job title: {job_title}</li>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
 
+export function AddressData(props) {
 
+    const { street, street_name, city, state, country, country_code, postal_code} = props.data.address[0];
+    return (
+        <>
+            <div className="profile__body__content">
 
+                <div className="profile__body__content__title">ADDRESS</div>
+                <div className="profile__body__content__data">
+                <ul>
+                        <li>street:    {street}</li>
+                        <li>street_name:  {street_name}</li>
+                        <li>city:    {city}</li>
+                        <li>state:  {state}</li>
+                        <li>country:    {country}</li>
+                        <li>country_code:  {country_code}</li>
+                        <li>postal_code:    {postal_code}</li>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
 
+export function ContactData(props) {
+    const { email, phone} = props.data;
+    return (
+        <>
+            <div className="profile__body__content">
 
-
+                <div className="profile__body__content__title">CONTACT</div>
+                <div className="profile__body__content__data">
+                <ul>
+                        <li>email:    {email}</li>
+                        <li>phone:  {phone}</li>
+                    </ul>
+                </div>
+            </div>
+        </>
+    )
+}
 
 
 export default UserProfile;
-
-
-/*
-
-"id": 1,
-        "first_name": "Alyosha",
-        "last_name": "Caldero",
-        "email": "acaldero0@behance.net",
-        "gender": "Male",
-        "birthdate": "29/12/1997",
-        "company_name": "King and Sons",
-        "department": "Sales",
-        "job_title": "Senior Editor",
-        "address": [
-            {
-                "street": "1 Hanson Terrace",
-                "street_name": "Merrick",
-                "city": "Beaufort",
-                "state": "South Carolina",
-                "country": "United States",
-                "country_code": "US",
-                "postal_code": "29905"
-            }
-        ],
-        "phone": "+7 (835) 885-9702",
-        "avatar": "https://robohash.org/voluptasautmagni.png?size=180x180&set=set1",
-        "email_verified": true,
-        "password": "6707389d040d09a08ad2803846f30db544242f06",
-        "last_login": "Never",
-        "last_login_ip": "239.243.71.212",
-        "subscribed": true
-
-        */

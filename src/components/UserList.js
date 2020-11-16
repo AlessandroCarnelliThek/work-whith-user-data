@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Redirect} from 'react-router'
+
 import Loading from './Loading'
-import UserCard from './UserCard'
 
 function UserList() {
     const [userData, setUserData] = useState([])
@@ -31,5 +32,17 @@ function UserList() {
         )
     }
 }
+
+
+export function UserCard(props) {
+    const { id, first_name, last_name, avatar } = props.data;
+    return (
+        <Link className="card Link" to={`/${id}`}>
+            <div className="card__img"><img src={avatar} alt="avatar" /></div>
+            <div className="card__content">{first_name} {last_name}</div>
+        </Link>
+    );
+}
+
 
 export default UserList;

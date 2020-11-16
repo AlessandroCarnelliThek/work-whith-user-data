@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import UserList from './components/UserList'
 import UserProfile from './components/UserProfile'
 import { Intro, Main } from './components/Loading.js'
-
 
 
 function App() {
